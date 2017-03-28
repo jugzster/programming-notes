@@ -34,3 +34,7 @@ As a rule of thumb, anything with N^2 or any other exponent is not a good algori
 ### Links:
 1. [Interview Cake](https://www.interviewcake.com/article/javascript/big-o-notation-time-and-space-complexity) - clear and concise explanation
 2. [Big O cheat sheet](http://bigocheatsheet.com/)
+
+# Tips
+- Look for a [greedy](https://en.wikipedia.org/wiki/Greedy_algorithm) approach when solving a problem. A greedy algorithm iterates through the problem space, taking the best answer so far, until it reaches the end. Greedy approaches usually lead to O(n) time.
+- Look up hash table (see what I did there?) most of the time helps to optimize the solution.
