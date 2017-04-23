@@ -64,7 +64,7 @@ const { first, last } = person;
 ```
 
 # Tips
-- Always name functions instead of writing anonymous functions, for stack trace debugging, readability, and reliable self-reliance. Unless your are using arrow functions.
+- Always name functions instead of writing anonymous functions, for stack trace debugging, readability, and reliable self-reliance.
 ```
 setTimeout(function waitForIt() {
   if (!o.it) {
@@ -72,4 +72,6 @@ setTimeout(function waitForIt() {
   }
 }, 100);
 ```
+Be careful when using using arrow functions. They are convenient to write, but as the cost of readability.
+
 - Don't use "this"-aware functions due to confusions in "this". You should not be using "this" in Functional Programming because "this" is an implicit input for your function. In FP, prefer explicit inputs and outputs. 
