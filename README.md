@@ -1,6 +1,4 @@
-# Programming Notes
-
-## Big-O Notation
+# Big-O Notation
 Tells you how complex an algorithm is. It describes the execution time or space used by an algorithm. It generally implies the worst case scenario, unless explicitly described as best case. For example, we could say this is worst case O(n) and best case O(1).
 
 It can be expressed in terms of either runtime or space (additional memory cost).
@@ -38,3 +36,29 @@ As a rule of thumb, anything with N^2 or any other exponent is not a good algori
 # Tips
 - Look for a [greedy](https://en.wikipedia.org/wiki/Greedy_algorithm) approach when solving a problem. A greedy algorithm iterates through the problem space, taking the best answer so far, until it reaches the end. Greedy approaches usually lead to O(n) time.
 - Look up hash table (see what I did there?) most of the time helps to optimize the solution.
+
+# JavaScript
+- Rest / Spread operator: "..."
+In an parameter list, it "gathers" the arguments together and puts them in an array. In an argument list, it spreads them out into individual arguments.
+```
+function foo(...args) {
+  console.log(args[3]);
+}
+
+var arr = [ 1, 2, 3, 4, 5 ];
+
+foo(...arr); // 4
+```
+In a value-list position, it spreads. In an assignment position -- like a parameter list, because the arguments get assigned to the parameters -- it gathers. Use it instead of slice(), concat(), and apply() when working with arrays.
+
+- Destructuring: {} or [] on left of "=", or inside parameter list.
+Extract data from objects, arrays, maps, and sets into their own variable.
+```
+function foo([x, y, ...args]) {
+ ...
+}
+
+foo([1, 2, 3]); // x: 1, y: 2, args: [3]
+
+const { first, last } = person;
+```
