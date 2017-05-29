@@ -21,11 +21,13 @@ Think about the time and complexity of algorithms as you design them, but be awa
 
 - O(n log n) - time to complete increases by the number of items times Log2(n). Example: quick sort, heap sort
 
+- O(n^2) - quadratic. Examples: loop within a loop, bubble sort
+
+- O(2^n) - exponential, increases based on the exponent N of constant 2 (or C). Example: travelling salesman solved using dynamic programming 
+
 - O(n!) - factorial of the input set. Example: travelling salesman brute-force solution
 
-- O(n^2) - loop within a loop
-
-- O(infinity) - tossing a coin until it lands
+- O(infinity) - tossing a coin until it lands heads/tails
 
 As a rule of thumb, anything with N^2 or any other exponent is not a good algorithm.
 
@@ -39,7 +41,7 @@ As a rule of thumb, anything with N^2 or any other exponent is not a good algori
 
 # JavaScript
 - Rest / Spread operator: "..."
-In an parameter list, it "gathers" the arguments together and puts them in an array. In an argument list, it spreads them out into individual arguments.
+In a parameter list, it "gathers" the arguments together and puts them in an array. In an argument list, it spreads them out into individual arguments.
 ```
 function foo(...args) {
   console.log(args[3]);
