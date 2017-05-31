@@ -35,6 +35,32 @@ As a rule of thumb, anything with N^2 or any other exponent is not a good algori
 1. [Interview Cake](https://www.interviewcake.com/article/javascript/big-o-notation-time-and-space-complexity) - clear and concise explanation
 2. [Big O cheat sheet](http://bigocheatsheet.com/)
 
+# Functional Programming
+Functional programming is about writing pure functions and minimizing impure functions.
+A **pure function**:
+- Given the same input, will always return the same output
+- Produces no side effects e.g. writing to database, console.log()
+- Does not rely on external mutable state
+
+A pure function is has referential transparency, meaning it can be replaced with its corresponding value without affecting program behavior. Half(4) can be replaced with 2 wherever in the code without affecting the final outcome.
+
+Benefits:
+- Dramatically reduced multithreaded and concurrent code, because you don't need to worry about one thread mutating the value of shared state between multiple threads. You don't have to worry about deadlocks and race conditions because you don't need to use locks.
+- More terse and expressive code
+- Less boilerplate code compared to object-oriented languages which are heavily dependent on design patterns
+- Easier to test
+- Easier to debug
+
+In functional programming:
+- Core functionality is implemented using pure functions, and impure functions are minimized
+- Data is immutable
+- Functional programs are stateless
+- Imperative code container manages side effects and executes declarative, pure code
+
+### Resources
+1. [Modern Javascript concepts](https://auth0.com/blog/glossary-of-modern-javascript-concepts/)
+2. [What is a pure function?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976)
+
 # Tips
 - Look for a [greedy](https://en.wikipedia.org/wiki/Greedy_algorithm) approach when solving a problem. A greedy algorithm iterates through the problem space, taking the best answer so far, until it reaches the end. Greedy approaches usually lead to O(n) time.
 - Look up hash table (see what I did there?) most of the time helps to optimize the solution.
