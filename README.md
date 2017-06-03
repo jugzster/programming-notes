@@ -106,12 +106,13 @@ Be careful when using using arrow functions. They are convenient to write, but a
 
 # Database
 ACID - properties of database transactions
-Atomicity - all parts of a transaction is committed, or none at all.
-Consistency - transaction never leaves the database in a half-finished or invalid state.
-Isolation - transactions are separate from each other until they are finished.
-Durability - once transaction is completed, changes are permanent. In case of failure, changes should not be lost.
+- Atomicity - all parts of a transaction is committed, or none at all.
+- Consistency - transaction never leaves the database in a half-finished or invalid state.
+- Isolation - transactions are separate from each other until they are finished.
+- Durability - once transaction is completed, changes are permanent. In case of failure, changes should not be lost.
 
-## Redis - a key-value data store where the entire data set is stored in-memory so it is extremely fast.
+## Redis
+- A key-value data store where the entire data set is stored in-memory so it is extremely fast.
 - It has built-in persistence, the data won't disappear when system is restarted.
 - It is a good choice if you want a highly scalable data store shared by multiple processes, apps, or servers.
 
