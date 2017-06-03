@@ -31,7 +31,7 @@ Think about the time and complexity of algorithms as you design them, but be awa
 
 As a rule of thumb, anything with N^2 or any other exponent is not a good algorithm.
 
-### Links:
+### Links
 1. [Interview Cake](https://www.interviewcake.com/article/javascript/big-o-notation-time-and-space-complexity) - clear and concise explanation
 2. [Big O cheat sheet](http://bigocheatsheet.com/)
 
@@ -57,7 +57,7 @@ In functional programming:
 - Functional programs are stateless
 - Imperative code container manages side effects and executes declarative, pure code
 
-### Resources
+### Links
 1. [Modern Javascript concepts](https://auth0.com/blog/glossary-of-modern-javascript-concepts/)
 2. [What is a pure function?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976)
 
@@ -103,3 +103,29 @@ setTimeout(function waitForIt() {
 Be careful when using using arrow functions. They are convenient to write, but as the cost of readability.
 
 - Don't use "this"-aware functions due to confusions in "this". You should not be using "this" in Functional Programming because "this" is an implicit input for your function. In FP, prefer explicit inputs and outputs. 
+
+# Database
+ACID - properties of database transactions
+Atomicity - all parts of a transaction is committed, or none at all.
+Consistency - transaction never leaves the database in a half-finished or invalid state.
+Isolation - transactions are separate from each other until they are finished.
+Durability - once transaction is completed, changes are permanent. In case of failure, changes should not be lost.
+
+## Redis - a key-value data store where the entire data set is stored in-memory so it is extremely fast.
+- It has built-in persistence, the data won't disappear when system is restarted.
+- It is a good choice if you want a highly scalable data store shared by multiple processes, apps, or servers.
+
+Use cases:
+1. Show latest item listings in your home page
+2. Deletion and filtering cached items
+3. Order by user votes and time, just like Reddit
+4. Leaderboards and related problems, where results change frequently over time
+
+Drawbacks:
+1. In-memory, so data size is limited by memory size.
+2. No query language (only commands). You cannot submit ad-hoc queries. All data access must be anticipated by the developer. A lot of flexibility is lost.
+3. It is not a relational database. Foreign key means nothing. Referential integrity is not maintained by Redis, and must be enforced by the client app.
+4. No D in ACID, meaning an executed command is not guaranteed to persist to disk since Redis only flushes to disk at configurable intervals. It should not be used as primary storage for data you cannot afford to lose. But Redis supports different persistence options, from "not safe but very efficient", to "safe but not very efficient". It also supports master-slave replication to protect the data in case of complete node failure.
+
+### Links
+[What is Redis for](https://stackoverflow.com/questions/7888880/what-is-redis-and-what-do-i-use-it-for)
