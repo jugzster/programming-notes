@@ -130,3 +130,15 @@ Drawbacks:
 
 ### Links
 [What is Redis for](https://stackoverflow.com/questions/7888880/what-is-redis-and-what-do-i-use-it-for)
+
+# Scalabilty
+It is the ability of a system to handle growing amounts of work in a graceful manner, or the potential to handle that growth. It is not about speed or performance.
+
+Types:
+1. Vertical: faster CPU, more RAM, more disk space
+2. Horizontal: more CPUs, more servers
+- more difficult since it adds complexity to the system. It requires system to handle parallel processing, and to account for data being physically distributed.
+- Prevalent solution for distributed data is NoSQL. They are highly scalable, although it has some drawbacks. See [Redis](https://github.com/joriguzman/programming-notes/#redis).
+
+How to scale an app:
+[TODO]
