@@ -134,11 +134,44 @@ Drawbacks:
 # Scalabilty
 It is the ability of a system to handle growing amounts of work in a graceful manner, or the potential to handle that growth. It is not about speed or performance.
 
-Types:
-1. Vertical: faster CPU, more RAM, more disk space
-2. Horizontal: more CPUs, more servers
-- more difficult since it adds complexity to the system. It requires system to handle parallel processing, and to account for data being physically distributed.
-- Prevalent solution for distributed data is NoSQL. They are highly scalable, although it has some drawbacks. See [Redis](https://github.com/joriguzman/programming-notes/#redis).
+Before scaling, gather data and profile your system. Find out what resource needs scaling: Memory, CPU, Network I/O, or Disk I/O. Measure things like:
+- Concurrent gequests per second
+- Average response time per request
+- Number of records processed per second/minute
+Don't prematurely optimize, nor spend time over-optimizing, because it introduces complexity, abstraction, and apps that are harder to maintain and test.
 
-How to scale an app:
-[TODO]
+Types:
+1. Vertical: adding more power to existing machine e.g. faster CPU, more RAM, more disk space
+- System is turned off while upgrading
+- Can only be done a certain number of times before capacity is maxed out
+2. Horizontal: more CPUs, more servers
+- More flexible, you don't need to take server offline while scaling
+- More difficult since it adds complexity to the system. It requires system to handle parallel processing, and to account for data being physically distributed.
+- Prefer horizontal to vertical scaling, since it is cheaper and more flexible
+
+How to make app scalable:
+- Caching: store results of common operations, reuse data even if it's a bit stale
+- Use a load balancer, so you can horizontally scale by adding new servers. Since it's a one-time setup, you should consider doing it up-front.
+- Scale up database using indices, query optimization
+- Avoid doing complex operations in the request-response cycle. Run them "offline" using a separate pool of workers.
+- Use caching with Memcached / [Redis](https://github.com/joriguzman/programming-notes/#redis)
+- Separate web server with database server
+- Use service-oriented / microservices arhictecture, such that each service is self-contained and independent. The app has its own independent web, application, caching, and database tiers. This way, you can scale a component or service on its own without affecting other components.
+- Use a cloud environment
+  - Continuous availability
+  - No limit to hardware capacity
+  - Cost can be tied to use. You're not stuck always paying for peak demand.
+  - Built-in redundancy
+
+Client-side improvements:
+- Minimize HTTP requests. 80-90% of end-user response time is spent downloading a page's components: images, stysheets, scripts, etc.
+  - Combine files using a module bundler like Webpack
+  - Use CSS Sprites, combining images into a single image and using CSS to display the desired image
+- Use a Content Delivery Network (CDN), a collection of web servers distributed across multiple locations to deliver content more efficiently
+- Put stylesheets at the top
+- Put scripts at the bottom
+- Minify Javascript and CSS
+
+### Links
+[Scaling Your Web App](https://blog.hartleybrody.com/scale-load)
+[Yahoo's Best Practices for Speeding Up Website](https://developer.yahoo.com/performance/rules.html)
