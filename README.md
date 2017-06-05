@@ -138,6 +138,7 @@ Before scaling, gather data and profile your system. Find out what resource need
 - Concurrent gequests per second
 - Average response time per request
 - Number of records processed per second/minute
+
 Don't prematurely optimize, nor spend time over-optimizing, because it introduces complexity, abstraction, and apps that are harder to maintain and test.
 
 Types:
@@ -147,7 +148,8 @@ Types:
 2. Horizontal: more CPUs, more servers
 - More flexible, you don't need to take server offline while scaling
 - More difficult since it adds complexity to the system. It requires system to handle parallel processing, and to account for data being physically distributed.
-- Prefer horizontal to vertical scaling, since it is cheaper and more flexible
+
+Prefer horizontal to vertical scaling, since it is cheaper and more flexible
 
 How to make app scalable:
 - Caching: store results of common operations, reuse data even if it's a bit stale
@@ -156,12 +158,8 @@ How to make app scalable:
 - Avoid doing complex operations in the request-response cycle. Run them "offline" using a separate pool of workers.
 - Use caching with Memcached / [Redis](https://github.com/joriguzman/programming-notes/#redis)
 - Separate web server with database server
-- Use service-oriented / microservices arhictecture, such that each service is self-contained and independent. The app has its own independent web, application, caching, and database tiers. This way, you can scale a component or service on its own without affecting other components.
-- Use a cloud environment
-  - Continuous availability
-  - No limit to hardware capacity
-  - Cost can be tied to use. You're not stuck always paying for peak demand.
-  - Built-in redundancy
+- Create stateless web architecture: session state is not be stored in any one particular server and responses and not dependent upon data from a previous session. Session data is stored on the client.
+- Use service-oriented / microservices arhictecture, such that the app is a suite of small services, and each service is self-contained and independent. The app has its own independent web, application, caching, and database tiers. This way, you can scale a component or service on its own without affecting other components.
 
 Client-side improvements:
 - Minimize HTTP requests. 80-90% of end-user response time is spent downloading a page's components: images, stysheets, scripts, etc.
@@ -175,3 +173,4 @@ Client-side improvements:
 ### Links
 [Scaling Your Web App](https://blog.hartleybrody.com/scale-load)
 [Yahoo's Best Practices for Speeding Up Website](https://developer.yahoo.com/performance/rules.html)
+[Stateless web architecture](https://www.quora.com/What-is-stateless-and-statefull-web-architecture)
