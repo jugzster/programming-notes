@@ -156,7 +156,7 @@ How to make app scalable:
 - Use a load balancer, so you can horizontally scale by adding new servers. Since it's a one-time setup, you should consider doing it up-front.
 - Scale up database using indices, query optimization
 - Avoid doing complex operations in the request-response cycle. Run them "offline" using a separate pool of workers.
-- Use caching with Memcached / [Redis](https://github.com/joriguzman/programming-notes/#redis)
+- Use caching with Memcached / [Redis](https://github.com/joriguzman/programming-notes/#redis), or a distributed data store such as Hazelcast
 - Separate web server with database server
 - Create stateless web architecture: session state is not be stored in any one particular server and responses and not dependent upon data from a previous session. Use REST API. If you must save state, save it on the client.
 - Use service-oriented / microservices arhictecture, such that the app is a suite of small services, and each service is self-contained and independent. The app has its own independent web, application, caching, and database tiers. This way, you can scale a component or service on its own without affecting other components.
