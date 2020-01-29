@@ -91,6 +91,29 @@ foo([1, 2, 3]); // x: 1, y: 2, args: [3]
 const { first, last } = person;
 ```
 
+- `this` depends on how the function is called. See object on left of the dot (.) for its context.
+1. `person.sayHi()` - `this` refers to person
+2. `sayHi()` - `this` is global Window object, or undefined in strict mode
+3. `call` / `apply` / `bind` - `this` is set to the first argument e.g. `summary.call(book)`
+4. In arrow functions, `this` is taken from enclosing execution context i.e. outer function:
+```
+function myFunc() {
+  this.myVar = 0;
+  setTimeout(
+    () => { // this taken from surrounding, meaning myFunc here
+      this.myVar++;
+      console.log(this.myVar) // 1
+    },
+    0
+  );
+}
+```
+
+https://www.taniarascia.com/this-bind-call-apply-javascript
+
+https://javascript.info/object-methods#arrow-functions-have-no-this
+
+
 # Tips
 - Always name functions instead of writing anonymous functions, for stack trace debugging, readability, and reliable self-reliance.
 ```
@@ -171,6 +194,7 @@ Client-side improvements:
 - Minify Javascript and CSS
 
 ### Links
+[JavaScript Cheatsheet](https://mbeaudru.github.io/modern-js-cheatsheet)
 [Scaling Your Web App](https://blog.hartleybrody.com/scale-load)
 [Yahoo's Best Practices for Speeding Up Website](https://developer.yahoo.com/performance/rules.html)
 [Stateless web architecture](https://www.quora.com/What-is-stateless-and-statefull-web-architecture)
