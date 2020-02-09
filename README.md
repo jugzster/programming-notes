@@ -108,6 +108,8 @@ function myFunc() {
   );
 }
 ```
+5. In setTimeout(), Javascript engine calls the method and `this` refers to the Timeout object! Use bind() to preserve this:
+`setTimeout(kurt.greet.bind(kurt), 1000)`
 
 https://www.taniarascia.com/this-bind-call-apply-javascript
 
