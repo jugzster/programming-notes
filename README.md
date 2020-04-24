@@ -68,16 +68,24 @@ In functional programming:
 # JavaScript
 - Rest / Spread operator: "..."
 In a parameter list, it "gathers" the arguments together and puts them in an array. In an argument list, it spreads them out into individual arguments.
+
+Spread: value context; right handle of equals; as argument
 ```
-function foo(...args) {
-  console.log(args[3]);
+const arr = [ 1, 2, 3, 4, 5 ]
+
+const newArr = [...arr] // Copy of arr
+```
+
+Rest/Gather: assignment context; left hand of equals; as parameters, because the arguments get assigned to the parameters
+```
+function foo(a, b, ...args) {
+  console.log(args[1])
 }
 
-var arr = [ 1, 2, 3, 4, 5 ];
-
-foo(...arr); // 4
+foo(1, 2, 3, 4) // outputs 4
 ```
-In a value-list position, it spreads. In an assignment position -- like a parameter list, because the arguments get assigned to the parameters -- it gathers. Use it instead of slice(), concat(), and apply() when working with arrays.
+
+Use it instead of slice(), concat(), and apply() when working with arrays.
 
 - Destructuring: {} or [] on left of "=", or inside parameter list.
 Extract data from objects, arrays, maps, and sets into their own variable.
