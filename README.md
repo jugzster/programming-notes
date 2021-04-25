@@ -144,6 +144,20 @@ ACID - properties of database transactions
 - Isolation - transactions are separate from each other until they are finished.
 - Durability - once transaction is completed, changes are permanent. In case of failure, changes should not be lost.
 
+# Data Structures and Algorithms
+
+### Graph
+- Non-linear data structure consisting of nodes (vertices) and edges (connections)
+- Used to represent and find connections
+- Sample uses: social network, street map
+
+Types:
+1. Directed - edges have direction; like one-way street
+2. Undirected
+
+1. Weighted - each edge has a value associated with it e.g. distance, time, number of shared connections between two users
+2. Unweighted
+
 ## Redis
 - A key-value data store where the entire data set is stored in-memory so it is extremely fast.
 - It has built-in persistence, the data won't disappear when system is restarted.
